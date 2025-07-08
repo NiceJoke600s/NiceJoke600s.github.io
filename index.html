@@ -1,101 +1,11 @@
+<!-- 根目錄 index.html -->
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <title>玩家閃避率計算機</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta http-equiv="refresh" content="0; url=/evasion_calculator_website/index.html" />
 </head>
 <body>
-  <div class="container">
-    <h2>🛡️ 玩家閃避率計算機</h2>
-
-    <div class="input-group">
-      <label for="playerAvoid">角色閃避值：</label>
-      <input type="number" id="playerAvoid" value="2025" />
-    </div>
-
-    <div class="input-group">
-      <label for="playerLevel">角色等級：</label>
-      <input type="number" id="playerLevel" value="50" />
-    </div>
-
-    <div class="input-group">
-      <label for="monsterSelect">選擇怪物：</label>
-      <select id="monsterSelect">
-        <option value="">請選擇怪物</option>
-      </select>
-    </div>
-
-    <div class="input-group">
-      <label for="monsterHit">怪物命中值：</label>
-      <input type="number" id="monsterHit" placeholder="或手動輸入" />
-    </div>
-
-    <div class="input-group">
-      <label for="monsterLevel">怪物等級：</label>
-      <input type="number" id="monsterLevel" value="50" />
-    </div>
-
-    <button onclick="calculateEvasion()">計算閃避率</button>
-
-    <div class="result" id="output"></div>
-  </div>
-
-  <script>
-    // 載入怪物資料 JSON，填充下拉選單
-    fetch("monsters.json")
-      .then((res) => res.json())
-      .then((monsters) => {
-        const sel = document.getElementById("monsterSelect");
-        monsters.forEach((m) => {
-          const opt = document.createElement("option");
-          opt.value = m.hit;
-          opt.text = `${m.name}（命中 ${m.hit}，閃避 ${m.avoid}）`;
-          opt.dataset.avoid = m.avoid;
-          opt.dataset.level = m.level || 50;
-          sel.appendChild(opt);
-        });
-
-        sel.addEventListener("change", (e) => {
-          const hit = e.target.value;
-          const selectedOption = e.target.selectedOptions[0];
-          document.getElementById("monsterHit").value = hit || "";
-          document.getElementById("monsterLevel").value =
-            selectedOption.dataset.level || 50;
-        });
-      });
-
-    function calculateEvasion() {
-      const playerAvoid = parseInt(document.getElementById("playerAvoid").value);
-      const monsterHit = parseInt(document.getElementById("monsterHit").value);
-      const monsterLevel = parseInt(document.getElementById("monsterLevel").value);
-      const playerLevel = parseInt(document.getElementById("playerLevel").value);
-
-      if (
-        isNaN(playerAvoid) ||
-        isNaN(monsterHit) ||
-        isNaN(monsterLevel) ||
-        isNaN(playerLevel)
-      ) {
-        document.getElementById("output").innerText = "請輸入完整數值";
-        return;
-      }
-
-      let sqrtAvoid = Math.floor(Math.sqrt(playerAvoid));
-      let sqrtHit = Math.floor(Math.sqrt(monsterHit));
-
-      let evasionRate = sqrtAvoid - sqrtHit;
-
-      if (monsterLevel > playerLevel) {
-        evasionRate -= (monsterLevel - playerLevel) * 3;
-      }
-
-      if (evasionRate < 0) evasionRate = 0;
-      if (evasionRate > 100) evasionRate = 100;
-
-      document.getElementById("output").innerText =
-        `✨ 玩家有 ${evasionRate}% 機率閃避怪物攻擊`;
-    }
-  </script>
+  如果沒有自動跳轉，請點<a href="/evasion-site/index.html">這裡</a>
 </body>
 </html>
+
