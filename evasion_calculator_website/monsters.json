@@ -1,0 +1,9 @@
+[
+  { "name": "綠水靈", "hit": 120, "avoid": 15, "level": 20 },
+  { "name": "藍水靈", "hit": 180, "avoid": 25, "level": 22 },
+  { "name": "紅螃蟹", "hit": 300, "avoid": 50, "level": 25 },
+  { "name": "火野豬", "hit": 520, "avoid": 80, "level": 30 },
+  { "name": "鋼鐵豬", "hit": 680, "avoid": 100, "level": 33 },
+  { "name": "妖魔飛龍", "hit": 4000, "avoid": 320, "level": 45 },
+  { "name": "黑暗炎魔", "hit": 9500, "avoid": 850, "level": 50 }
+]
